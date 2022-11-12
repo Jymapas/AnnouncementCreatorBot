@@ -1,4 +1,5 @@
-﻿using Telegram.Bot;
+﻿using System.Text.RegularExpressions;
+using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
@@ -16,15 +17,34 @@ public class MessageHandler
         
         if((update.Type != UpdateType.Message) || (update.Message!.Type != MessageType.Text)) return;
         var message = update?.Message;
+        _id = message.Chat.Id;
+
+        var synchId = Regex.Match(message.Text, @"\d+").Value;
+        if (synchId == string.Empty)
+        {
+            await SendMessageAsync(Constants.IdNotFound);
+            return;
+        }
+
+        var headAndBlody = Announcement.Create(synchId);
+        foreach (var content in headAndBlody)
+        {
+            await SendMessageAsync(content);
+        }
     }
 
     public async Task HandleErrorAsync(ITelegramBotClient bot, Exception exception, CancellationToken cancellationToken)
     {
-        
+        Console.WriteLine(exception);
     }
 
-    async Task SendMessageAsync(ChatId chatId, string text)
+    async Task SendMessageAsync(string text)
     {
-        
+        await _bot.SendTextMessageAsync(
+            chatId: _id,
+            text: text,
+            parseMode: ParseMode.Html,
+            cancellationToken: _cancellationToken
+        );
     }
 }

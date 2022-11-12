@@ -10,7 +10,7 @@ public class Connect
 
     internal void Start()
     {
-        _token = "";
+        _token = "1586206651:AAEklmx91YyutV7wgHkl31YpAh_lW6fmQlw";
         if (_token.Equals(String.Empty))
             return;
 
