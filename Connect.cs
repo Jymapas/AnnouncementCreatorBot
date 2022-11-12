@@ -6,16 +6,15 @@ namespace AnnouncementCreatorBot;
 
 public class Connect
 {
-    private string _token;
     private MessageHandler _messageHandler = new();
 
     internal void Start()
     {
-        _token = new FileInfo("TgToken.txt").OpenText().ReadToEnd();
-        if (_token.Equals(String.Empty))
+        var token = new FileInfo("TgToken.txt").OpenText().ReadToEnd();
+        if (token.Equals(String.Empty))
             return;
 
-        ITelegramBotClient bot = new TelegramBotClient(_token);
+        ITelegramBotClient bot = new TelegramBotClient(token);
         using CancellationTokenSource cts = new();
         var cancellationToken = cts.Token;
         var receiverOptions = new ReceiverOptions
