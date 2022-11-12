@@ -38,8 +38,6 @@ public class Announcement
             if (isNotFound)
                 return new List<string>() { Constants.RequestNotFound };
 
-            Thread.Sleep(1000);
-
             var request = new GetRequest($"{Constants.ApiBase}{synchId}");
             request.Run();
 
