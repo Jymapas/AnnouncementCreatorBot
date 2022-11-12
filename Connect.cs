@@ -1,4 +1,5 @@
-﻿using Telegram.Bot;
+﻿using Newtonsoft.Json.Linq;
+using Telegram.Bot;
 using Telegram.Bot.Extensions.Polling;
 
 namespace AnnouncementCreatorBot;
@@ -10,7 +11,7 @@ public class Connect
 
     internal void Start()
     {
-        _token = "1586206651:AAEklmx91YyutV7wgHkl31YpAh_lW6fmQlw";
+        _token = new FileInfo("TgToken.txt").OpenText().ReadToEnd();
         if (_token.Equals(String.Empty))
             return;
 

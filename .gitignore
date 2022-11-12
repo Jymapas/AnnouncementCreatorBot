@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/AnnouncementCreatorBot
+/bin/Debug/net6.0
+/obj/Debug/net6.0
+/.vs/ProjectEvaluation
