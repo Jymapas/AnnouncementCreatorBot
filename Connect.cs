@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using Telegram.Bot;
+﻿using Telegram.Bot;
 using Telegram.Bot.Extensions.Polling;
 
 namespace AnnouncementCreatorBot;
