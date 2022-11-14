@@ -15,7 +15,7 @@ public class GetRequest
 
     public void Run()
     {
-        _request = (HttpWebRequest)WebRequest.Create(_address);
+        _request = WebRequest.Create(_address) as HttpWebRequest;
         _request.Method = "Get";
 
         try

@@ -5,7 +5,7 @@ using Telegram.Bot.Types.Enums;
 
 namespace AnnouncementCreatorBot;
 
-public class MessageHandler
+public partial class MessageHandler
 {
     private ITelegramBotClient _bot;
     private CancellationToken _cancellationToken;
@@ -15,11 +15,11 @@ public class MessageHandler
         _bot = bot;
         _cancellationToken = cancellationToken;
         
-        if((update.Type != UpdateType.Message) || (update.Message!.Type != MessageType.Text)) return;
+        if(update.Type != UpdateType.Message || update.Message!.Type != MessageType.Text) return;
         var message = update?.Message;
         _id = message.Chat.Id;
 
-        var synchId = Regex.Match(message.Text, @"\d+").Value;
+        string synchId = GetId().Match(input: message.Text).Value;
         if (synchId == string.Empty)
         {
             await SendMessageAsync(Constants.IdNotFound);
@@ -47,4 +47,7 @@ public class MessageHandler
             cancellationToken: _cancellationToken
         );
     }
+
+    [GeneratedRegex("\\d+")]
+    private static partial Regex GetId();
 }

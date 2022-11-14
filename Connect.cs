@@ -5,7 +5,7 @@ namespace AnnouncementCreatorBot;
 
 public class Connect
 {
-    private MessageHandler _messageHandler = new();
+    private readonly MessageHandler _messageHandler = new();
 
     internal void Start()
     {
