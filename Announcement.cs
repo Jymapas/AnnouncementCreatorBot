@@ -18,7 +18,7 @@ public partial class Announcement
         var isNotFound = true;
         foreach (var member in members)
         {
-            if ((string) member["representative"]["id"] == "93867")
+            if ((string)member["representative"]["id"] == "93867")
             {
                 var ci = new CultureInfo("ru-RU");
                 var dt = DateTime.Parse(member["dateStart"].ToString());
@@ -59,7 +59,7 @@ public partial class Announcement
 
         dictionary.Add("multiple", editorsList.Count < 2 ? "" : "ы");
 
-        var payment = json["mainPayment"].Value<int>();
+        int payment = json["mainPayment"].Value<int>();
         payment *= json["currency"].Value<string>() != "r" ? 65 : 1;
         int toursCount = json["questionQty"].Count();
         JToken? questionsInTour = json["questionQty"]["1"];
