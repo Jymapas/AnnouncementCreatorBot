@@ -6,3 +6,7 @@
 /bin/Debug/net6.0
 /obj/Debug/net6.0
 /.vs/ProjectEvaluation
+/obj/AnnouncementCreatorBot.csproj.nuget.dgspec.json
+/obj/project.nuget.cache
+/obj/project.assets.json
+/obj/AnnouncementCreatorBot.csproj.nuget.g.props
