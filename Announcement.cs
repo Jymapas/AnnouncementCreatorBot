@@ -22,7 +22,7 @@ public partial class Announcement
             {
                 var ci = new CultureInfo("ru-RU");
                 var dt = DateTime.Parse(member["dateStart"].ToString());
-                Console.WriteLine(dt);
+
                 dictionary.Add("eventsDate", dt.ToString("dd MMMM, dddd", ci));
                 dictionary.Add("startTime", dt.ToString("HH:mm", ci));
                 dictionary.Add("regTime", dt.AddMinutes(-30).ToString("HH:mm", ci));
