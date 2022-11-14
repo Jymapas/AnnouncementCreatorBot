@@ -10,3 +10,8 @@
 /obj/project.nuget.cache
 /obj/project.assets.json
 /obj/AnnouncementCreatorBot.csproj.nuget.g.props
+/obj/Debug/net7.0
+/bin/Debug/net7.0
+/.vs
+/obj/Debug/net7.0/AnnouncementCreatorBot.GeneratedMSBuildEditorConfig.editorconfig
+/obj/Debug/net7.0/AnnouncementCreatorBot.assets.cache
