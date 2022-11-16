@@ -82,7 +82,8 @@ public partial class Announcement
             Редактор{dictionary["multiple"]} — {dictionary["editors"]}.
             Ведущ{dictionary["narratorsSex"]} — {dictionary["narrator"]}.
             
-            Заявки принимаются на почту jymapas@yandex.ru или в телеграм Анне (@nuhhler) или Саше (@Jymapas).</code>
+            Заявки принимаются на почту jymapas@yandex.ru или в телеграм Анне (@nuhhler) или Саше (@Jymapas).
+            С радостью примем до 15 команд.</code>
             """;
 
         return new List<string> { headMessage, bodyMessage };
