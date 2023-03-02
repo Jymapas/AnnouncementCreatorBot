@@ -11,10 +11,8 @@ public partial class Announcement
     {
         var membersRequest = new GetRequest($"{Constants.ApiBase}{synchId}/requests?page=1&itemsPerPage=100");
         membersRequest.Run();
-        // var membersResponce = $"{{\"hydra:member\": {membersRequest.Response}}}";
         var membersResponce = membersRequest.Response;
         var membersJson = JArray.Parse(membersResponce);
-        // var members = membersJson["hydra:member"];
         var dictionary = new Dictionary<string, string>();
         var isNotFound = true;
         foreach (var member in membersJson)
