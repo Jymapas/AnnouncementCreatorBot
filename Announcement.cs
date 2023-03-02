@@ -11,12 +11,13 @@ public partial class Announcement
     {
         var membersRequest = new GetRequest($"{Constants.ApiBase}{synchId}/requests?page=1&itemsPerPage=100");
         membersRequest.Run();
+        // var membersResponce = $"{{\"hydra:member\": {membersRequest.Response}}}";
         var membersResponce = membersRequest.Response;
-        var membersJson = JObject.Parse(membersResponce);
-        var members = membersJson["hydra:member"];
+        var membersJson = JArray.Parse(membersResponce);
+        // var members = membersJson["hydra:member"];
         var dictionary = new Dictionary<string, string>();
         var isNotFound = true;
-        foreach (var member in members)
+        foreach (var member in membersJson)
         {
             if ((string)member["representative"]["id"] == "93867")
             {
@@ -27,8 +28,8 @@ public partial class Announcement
                 dictionary.Add("startTime", dt.ToString("HH:mm", ci));
                 dictionary.Add("regTime", dt.AddMinutes(-30).ToString("HH:mm", ci));
 
-                var narrator = member["narrators"];
-                dictionary.Add("narrator", $"{narrator.First["name"]} {narrator.First["surname"]}");
+                var narrator = member["narrator"];
+                dictionary.Add("narrator", $"{narrator["name"]} {narrator["surname"]}");
                 dictionary.Add("narratorsSex", dictionary["narrator"].EndsWith("а") ? "ая" : "ий");
                 isNotFound = false;
                 break;

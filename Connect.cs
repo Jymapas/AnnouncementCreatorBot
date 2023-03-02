@@ -10,7 +10,7 @@ public class Connect
     internal void Start()
     {
         var token = new FileInfo("TgToken.txt").OpenText().ReadToEnd();
-        if (token.Equals(String.Empty))
+        if (token.Equals(string.Empty))
             return;
 
         ITelegramBotClient bot = new TelegramBotClient(token);
