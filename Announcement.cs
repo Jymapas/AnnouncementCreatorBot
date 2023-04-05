@@ -15,6 +15,8 @@ public partial class Announcement
         var membersJson = JArray.Parse(membersResponce);
         var dictionary = new Dictionary<string, string>();
         var isNotFound = true;
+        var currencyRate = 82;
+
         foreach (var member in membersJson)
         {
             if ((string)member["representative"]["id"] == "93867")
@@ -59,7 +61,7 @@ public partial class Announcement
         dictionary.Add("multiple", editorsList.Count < 2 ? "" : "ы");
 
         int payment = json["mainPayment"].Value<int>();
-        payment *= json["currency"].Value<string>() != "r" ? 65 : 1;
+        payment *= json["currency"].Value<string>() != "r" ? currencyRate : 1;
         int toursCount = json["questionQty"].Count();
         JToken? questionsInTour = json["questionQty"]["1"];
 
