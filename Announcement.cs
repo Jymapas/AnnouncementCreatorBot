@@ -65,9 +65,12 @@ public partial class Announcement
         int toursCount = json["questionQty"].Count();
         JToken? questionsInTour = json["questionQty"]["1"];
 
-        var headMessage = $@"<code>{dictionary["eventsDate"]} — «{dictionary["tournamentName"]}» в «Conchita Bonita»</code>";
+        var headMessage = $@"```
+{dictionary["eventsDate"]} — «{dictionary["tournamentName"]}» в «Conchita Bonita»
+```";
         var bodyMessage = $"""
-            <code>Добрый день!
+            ```
+            Добрый день!
             
             Открываем приём заявок на синхронный турнир «{dictionary["tournamentName"]}».
             Отыгрыш состоится {dictionary["eventsDate"]}.
@@ -83,8 +86,9 @@ public partial class Announcement
             Редактор{dictionary["multiple"]} — {dictionary["editors"]}.
             Ведущ{dictionary["narratorsSex"]} — {dictionary["narrator"]}.
             
-            Заявки принимаются на почту jymapas@yandex.ru или в телеграм Анне (@nuhhler) или Саше (@Jymapas).
-            С радостью примем до 15 команд.</code>
+            Заявки принимаются на почту jymapas@yandex.ru или в телеграм Анне (<a href="https://t.me/nuhhler">@nuhhler</a>) или Саше (<a href="https://t.me/Jymapas">@Jymapas</a>).
+            С радостью примем до 15 команд.
+            ```
             """;
 
         return new List<string> { headMessage, bodyMessage };
