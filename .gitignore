@@ -15,3 +15,11 @@
 /.vs
 /obj/Debug/net7.0/AnnouncementCreatorBot.GeneratedMSBuildEditorConfig.editorconfig
 /obj/Debug/net7.0/AnnouncementCreatorBot.assets.cache
+/obj/Release/net7.0/AnnouncementCreatorBot.GlobalUsings.g.cs
+/obj/Release/net7.0/AnnouncementCreatorBot.GeneratedMSBuildEditorConfig.editorconfig
+/obj/Release/net7.0/AnnouncementCreatorBot.csproj.AssemblyReference.cache
+/obj/Release/net7.0/AnnouncementCreatorBot.assets.cache
+/obj/Release/net7.0/AnnouncementCreatorBot.AssemblyInfoInputs.cache
+/obj/Release/net7.0/AnnouncementCreatorBot.AssemblyInfo.cs
+/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
+/obj/Release/net7.0
