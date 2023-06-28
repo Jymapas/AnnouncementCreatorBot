@@ -43,7 +43,7 @@ public partial class MessageHandler
         await _bot.SendTextMessageAsync(
             chatId: _id,
             text: text,
-            parseMode: ParseMode.Html,
+            parseMode: ParseMode.MarkdownV2,
             cancellationToken: _cancellationToken
         );
     }
