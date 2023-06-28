@@ -26,7 +26,7 @@ public partial class MessageHandler
             return;
         }
 
-        var headAndBody = Announcement.Create(synchId);
+        var headAndBody = AnnouncementCreator.Create(synchId);
         foreach (var content in headAndBody)
         {
             await SendMessageAsync(content);
