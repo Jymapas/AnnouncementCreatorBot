@@ -65,29 +65,31 @@ public partial class Announcement
         int toursCount = json["questionQty"].Count();
         JToken? questionsInTour = json["questionQty"]["1"];
 
+        var difficultyForecast = json["difficultyForecast"].Value<float>();
+
         var headMessage = $@"```
-{dictionary["eventsDate"]} — «{dictionary["tournamentName"]}» в «Conchita Bonita»
+{dictionary["eventsDate"]} — «{dictionary["tournamentName"]}» в баре «Бумер»
 ```";
         var bodyMessage = $"""
             ```
-            Добрый день\
+            Добрый день.
             
             Открываем приём заявок на синхронный турнир «{dictionary["tournamentName"]}».
             Отыгрыш состоится {dictionary["eventsDate"]}.
             Начало регистрации в {dictionary["regTime"]}. Начало турнира в {dictionary["startTime"]}.
             
-            Приглашаем на игру по адресу Гороховая ул., 41: рестобар мексиканской кухни «Conchita Bonita», 4 минуты пешком от метро «Сенная площадь» / «Спасская» / «Садовая».
-            Для игроков действует 10% скидка на всё меню! А для победителя площадки — сет шотов текилы и скидка в 30%.
+            Приглашаем на игру в баре «Бумер» по адресу: Невский пр., д. 60А (двор кинотеатра «Аврора»), 4 минуты пешком от метро «Гостиный двор».
             
             Телефон для связи: +7(921)563-22-45, Александр.
             
             Взнос — {(payment > 670 ? 1500 : 1200)} рублей с команды.
+            Заявленная сложность — {difficultyForecast} DL.
             Турнир рейтингуется МАИИ, {toursCount} тура по {questionsInTour} вопросов.
             Редактор{dictionary["multiple"]} — {dictionary["editors"]}.
             Ведущ{dictionary["narratorsSex"]} — {dictionary["narrator"]}.
             
             Заявки принимаются на почту jymapas@yandex.ru или в телеграм Анне (<a href="https://t.me/nuhhler">@nuhhler</a>) или Саше (<a href="https://t.me/Jymapas">@Jymapas</a>).
-            С радостью примем до 13 команд.
+            С радостью примем до 6 команд.
             ```
             """;
 
